@@ -25,6 +25,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    validate: {
+      validator(value) {
+        return validator.isEmail(value);
+      },
+      message: "You must enter a valid email",
+    },
   },
   password: {
     type: String,
